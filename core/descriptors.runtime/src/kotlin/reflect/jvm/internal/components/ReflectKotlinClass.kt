@@ -197,7 +197,7 @@ private object ReflectClassStructure {
         val clazz = value::class.java
         when {
             clazz == Class::class.java -> {
-                visitor.visitClassLiteral(name, clazz.classLiteralId())
+                visitor.visitClassLiteral(name, (value as Class<*>).classLiteralId())
             }
             clazz in TYPES_ELIGIBLE_FOR_SIMPLE_VISIT -> {
                 visitor.visit(name, value)
